@@ -1,1 +1,2 @@
 02/29 Hui Wen: Updated HTML with buttons and connecting them to vue functions
+      Tyler: Updated JS with append/delete input for buttons
