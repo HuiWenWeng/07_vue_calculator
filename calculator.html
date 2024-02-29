@@ -1,1 +1,23 @@
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VueJS Calculator</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="number" id="part1" v-model="part1_value" />
+      <select id="select" v-on:change="calculate($event)" v-model="operand">
+        <option value=""></option>
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">×</option>
+        <option value="/">÷</option>
+      </select>
+      <input type="number" id="part2" v-model="part2_value" />
+      = {{ result }}
+    </div>
+    <script type="module" src="calculator.js"></script>
+  </body>
+</html>
