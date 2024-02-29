@@ -7,16 +7,30 @@
   </head>
   <body>
     <div id="app">
-      <input type="number" id="part1" v-model="part1_value" />
-      <select id="select" v-on:change="calculate($event)" v-model="operand">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="-">-</option>
-        <option value="*">×</option>
-        <option value="/">÷</option>
-      </select>
-      <input type="number" id="part2" v-model="part2_value" />
-      = {{ result }}
+      <button @click="deleteInput()">x</button>
+      <button @click="updateInput()">(</button>
+      <button @click="updateInput()">)</button>
+      <button @click="updateInput()">mod</button>
+      <button @click="updateInput()">n</button> <br>
+      <button @click="updateInput()">7</button>
+      <button @click="updateInput()">8</button>
+      <button @click="updateInput()">9</button>
+      <button @click="updateInput()">÷</button>
+      <button @click="updateInput()">√</button> <br>
+      <button @click="updateInput()">4</button>
+      <button @click="updateInput()">5</button>
+      <button @click="updateInput()">6</button>
+      <button @click="updateInput()">✕</button>
+      <button @click="updateInput()">x²</button> <br>
+      <button @click="updateInput()">1</button>
+      <button @click="updateInput()">2</button>
+      <button @click="updateInput()">3</button>
+      <button @click="updateInput()">-</button> <br>
+      <button @click="updateInput()">0</button>
+      <button @click="updateInput()">.</button>
+      <button @click="updateInput()">%</button>
+      <button @click="updateInput()">+</button> <br>
+      <button @click="calculate()">=</button>
     </div>
     <script type="module" src="calculator.js"></script>
   </body>
