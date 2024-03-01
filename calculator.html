@@ -10,47 +10,47 @@
     <div id="app">
       <table>
 
-        <!-- <tr>
-          <input/>
-        <tr> -->
+        <tr>
+          <td colspan="5" class="inputField"></td>
+        <tr>
 
         <tr>
-          <td @click="deleteInput()">⌫</td>
-          <td @click="updateInput()">(</td>
-          <td @click="updateInput()">)</td>
-          <td @click="updateInput()">mod</td>
-          <td @click="updateInput()">π</td>
+          <td @click="deleteInput('⌫')">⌫</td>
+          <td @click="appendInput('(')">(</td>
+          <td @click="appendInput(')')">)</td>
+          <td @click="appendInput('mod')">mod</td>
+          <td @click="appendInput('π')">π</td>
         </tr>
 
         <tr>
-          <td @click="updateInput()">7</td>
-          <td @click="updateInput()">8</td>
-          <td @click="updateInput()">9</td>
-          <td @click="updateInput()">÷</td>
-          <td @click="updateInput()">√</td>
+          <td @click="appendInput('7')">7</td>
+          <td @click="appendInput('8')">8</td>
+          <td @click="appendInput('9')">9</td>
+          <td @click="appendInput('÷')">÷</td>
+          <td @click="appendInput('√')">√</td>
         </tr>
 
         <tr>
-          <td @click="updateInput()">4</td>
-          <td @click="updateInput()">5</td>
-          <td @click="updateInput()">6</td>
-          <td @click="updateInput()">✕</td>
-          <td @click="updateInput()">x²</td>
+          <td @click="appendInput('4')">4</td>
+          <td @click="appendInput('5')">5</td>
+          <td @click="appendInput('6')">6</td>
+          <td @click="appendInput('×')">×</td>
+          <td @click="appendInput('x²')">x²</td>
         </tr>
 
         <tr>
-          <td @click="updateInput()">1</td>
-          <td @click="updateInput()">2</td>
-          <td @click="updateInput()">3</td>
-          <td @click="updateInput()">-</td>
+          <td @click="appendInput('1')">1</td>
+          <td @click="appendInput('2')">2</td>
+          <td @click="appendInput('3')">3</td>
+          <td @click="appendInput('－')">－</td>
           <td rowspan="2" class="equal-btn" @click="calculate()">=</td>
         </tr>
 
         <tr>
-          <td @click="updateInput()">0</td>
-          <td @click="updateInput()">.</td>
-          <td @click="updateInput()">%</td>
-          <td @click="updateInput()">+</td>
+          <td @click="appendInput(0)">0</td>
+          <td @click="appendInput()">.</td>
+          <td @click="appendInput()">%</td>
+          <td @click="appendInput()">+</td>
         </tr>
       </table>
 
