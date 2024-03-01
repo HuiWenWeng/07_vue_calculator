@@ -3,34 +3,57 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="calculator.css" />
     <title>VueJS Calculator</title>
   </head>
   <body>
     <div id="app">
-      <button @click="deleteInput()">x</button>
-      <button @click="updateInput()">(</button>
-      <button @click="updateInput()">)</button>
-      <button @click="updateInput()">mod</button>
-      <button @click="updateInput()">n</button> <br>
-      <button @click="updateInput()">7</button>
-      <button @click="updateInput()">8</button>
-      <button @click="updateInput()">9</button>
-      <button @click="updateInput()">÷</button>
-      <button @click="updateInput()">√</button> <br>
-      <button @click="updateInput()">4</button>
-      <button @click="updateInput()">5</button>
-      <button @click="updateInput()">6</button>
-      <button @click="updateInput()">✕</button>
-      <button @click="updateInput()">x²</button> <br>
-      <button @click="updateInput()">1</button>
-      <button @click="updateInput()">2</button>
-      <button @click="updateInput()">3</button>
-      <button @click="updateInput()">-</button> <br>
-      <button @click="updateInput()">0</button>
-      <button @click="updateInput()">.</button>
-      <button @click="updateInput()">%</button>
-      <button @click="updateInput()">+</button> <br>
-      <button @click="calculate()">=</button>
+      <table>
+
+        <!-- <tr>
+          <input/>
+        <tr> -->
+
+        <tr>
+          <td @click="deleteInput()">⌫</td>
+          <td @click="updateInput()">(</td>
+          <td @click="updateInput()">)</td>
+          <td @click="updateInput()">mod</td>
+          <td @click="updateInput()">π</td>
+        </tr>
+
+        <tr>
+          <td @click="updateInput()">7</td>
+          <td @click="updateInput()">8</td>
+          <td @click="updateInput()">9</td>
+          <td @click="updateInput()">÷</td>
+          <td @click="updateInput()">√</td>
+        </tr>
+
+        <tr>
+          <td @click="updateInput()">4</td>
+          <td @click="updateInput()">5</td>
+          <td @click="updateInput()">6</td>
+          <td @click="updateInput()">✕</td>
+          <td @click="updateInput()">x²</td>
+        </tr>
+
+        <tr>
+          <td @click="updateInput()">1</td>
+          <td @click="updateInput()">2</td>
+          <td @click="updateInput()">3</td>
+          <td @click="updateInput()">-</td>
+          <td rowspan="2" class="equal-btn" @click="calculate()">=</td>
+        </tr>
+
+        <tr>
+          <td @click="updateInput()">0</td>
+          <td @click="updateInput()">.</td>
+          <td @click="updateInput()">%</td>
+          <td @click="updateInput()">+</td>
+        </tr>
+      </table>
+
     </div>
     <script type="module" src="calculator.js"></script>
   </body>
