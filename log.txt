@@ -1,4 +1,5 @@
 02/29 Hui Wen: Updated HTML with buttons and connecting them to vue functions
 02/29 Tyler: Updated JS with append/delete input for buttons
 
-03/01 Hui Wen: Updated CSS file — keypad now completed with CSS
+03/01 Hui Wen (During frees): Updated CSS file — keypad now completed with CSS
+      Hui Wen (After school): Updated CSS file (now has input field and results field), keyboard input functioning

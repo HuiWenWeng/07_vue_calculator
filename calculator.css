@@ -1,6 +1,24 @@
+.resultTd:hover {
+    background-color: dimgray;
+}
+
+.resultField {
+    /* pointer-events: none; */
+    max-height: 8em;
+    overflow: scroll;
+}
+
+input {
+    background-color: dimgray;
+    color: white;
+    font-size: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    border: none;
+}
+
 .inputField {
-    pointer-events: none;
-    padding: 15%;
+    padding: 2%;
 }
 
 table {
