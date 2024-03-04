@@ -5,3 +5,5 @@
       Hui Wen (After school): Updated CSS file (now has input field and results field), keyboard input functioning
 
 03/03 Tyler (Over the weekend): Experimented with calculate function for expressions within parantheses
+
+03/04 Hui Wen: Alert when user inputs letters

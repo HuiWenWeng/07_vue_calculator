@@ -6,9 +6,7 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             copyInput: "",
             result: "",
             answer: "",
-            openParenTracker: 0,
-            closeParenTracker: 0,
-            reverseStr: ""
+            history: [],
         }; 
     },
 
@@ -32,12 +30,15 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             //     this.copyInput = this.copyInput.replace((this.input.substring(this.openParenTracker, this.closeParenTracker + 1)), replacement)
             //     console.log(this.copyInput)
             // }
-            this.answer = eval(this.input)
+            
+            // checks to make sure there are no letters in the input
+            if (/[a-zA-Z]/g.test(this.copyInput)) {
+                alert("Error! Unknown variable detected.")
+            }
+
+            this.answer = eval(this.copyInput)
             console.log(this.answer)
         },
-        reverseString(str) { 
-            this.reverseStr +=  str.split('').reverse().join(''); 
-        }
     } 
 
 }).mount('#app')
