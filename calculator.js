@@ -7,6 +7,7 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             result: "",
             answer: "",
             history: [],
+            inputValid: true,
         }; 
     },
 
@@ -21,23 +22,35 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             //changes the operations by making a copy
             this.copyInput = this.input;
             if (this.copyInput.includes("x")) {
-                this.copyInput.replace(/x/g, "*")
+                this.copyInput.replace(/x/g, "*");
             }
             if (this.copyInput.includes ("÷")) {
-                this.copyInput.replace(/÷/g, "/")
+                this.copyInput.replace(/÷/g, "/");
             }
             if (this.copyInput.includes ("mod")) {
-                this.copyInput.replace(/mod/g, "%")
+                this.copyInput.replace(/mod/g, "%");
             }
-            this.answer = eval(this.copyInput)
+            if (this.copyInput.includes ("π")) {
+                this.copyInput.replace(/π/g, "3.14159265359");
+            }
+
+            //checking for edge cases
+            // checks division by 0
+            if (this.copyInput.includes ("÷0")) {
+                alert("Error! Cannot divide by zero.");
+                inputValid = false;
+            }
             
             // checks to make sure there are no letters in the input
             if (/[a-zA-Z]/g.test(this.copyInput)) {
-                alert("Error! Unknown variable detected.")
+                alert("Error! Unknown variable detected.");
+                inputValid = false;
             }
 
-            this.answer = eval(this.copyInput)
+            if (this.inputValid == true) {
+                this.answer = eval(this.copyInput)
             console.log(this.answer)
+            }
         },
     } 
 
