@@ -13,25 +13,15 @@
         <tr>
           <td class="resultTd" colspan="5">
             <div class="resultField" >
-              The text below are stubs to test scrolling <br>
-              asdlkfj;aldskjf;oaijf;asdlfka;lskdfja;sdlf;kjasdf<br>
-              asdlkfj;aldskjf;oaijf;asdlfka;lskdfja;sdlf;kjasdf<br>
-              asdlkfj;aldskjf;oaijf;asdlfka;lskdfja;sdlf;kjasdf<br>
-              asdlkfj;aldskjf;oaijf;asdlfka;lskdfja;sdlf;kjasdf<br>
-              asdlkfj;aldskjf;oaijf;asdlfka;lskdfja;sdlf;kjasdf<br>
-              asdlkfj;aldskjf;oaijf;asdlfka;lskdfja;sdlf;kjasdf<br>
-              asdlkfj;aldskjf;oaijf;asdlfka;lskdfja;sdlf;kjasdf<br>
-              asdlkfj;aldskjf;oaijf;asdlfka;lskdfja;sdlf;kjasdf<br>
-              asdlkfj;aldskjf;oaijf;asdlfka;lskdfja;sdlf;kjasdf<br>
-              asdlkfj;aldskjf;oaijf;asdlfka;lskdfja;sdlf;kjasdf<br>
-              asdlkfj;aldskjf;oaijf;asdlfka;lskdfja;sdlf;kjasdf<br>
-              asdlkfj;aldskjf;oaijf;asdlfka;lskdfja;sdlf;kjasdf<br>
+              <ul>
+                <li v-for="entry in history">{{ entry }}</li>
+              </ul>
             </div>
           </td>
         <tr>
 
         <tr>
-          <td class="inputField" colspan="5">
+          <td @keyup.enter="calculate" class="inputField" colspan="5">
             <input v-model="input" autofocus></input>
           </td>
         <tr>

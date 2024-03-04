@@ -1,10 +1,14 @@
 .resultTd:hover {
     background-color: dimgray;
+    cursor: auto;
 }
 
 .resultField {
-    max-height: 8em;
+    height: 8em;
     overflow: scroll;
+    margin-inline: 0.5em;
+    cursor: auto;
+    padding-inline: 1em;
 }
 
 input {
@@ -21,7 +25,7 @@ input {
 }
 
 table {
-    padding: 15%;
+    padding-inline: 15%;
     border-spacing: 8px;
     table-layout: fixed;
     width: 100%;
@@ -51,4 +55,14 @@ td:hover {
 
 .equal-btn:hover {
     background-color: lightsalmon;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    padding-top: 0.5em;
+    text-align: end;
+    font-size: 20px;
 }

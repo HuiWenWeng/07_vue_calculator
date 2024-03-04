@@ -3,3 +3,5 @@
 
 03/01 Hui Wen (During frees): Updated CSS file — keypad now completed with CSS
       Hui Wen (After school): Updated CSS file (now has input field and results field), keyboard input functioning
+
+03/03 Tyler (Over the weekend): Experimented with calculate function for expressions within parantheses
