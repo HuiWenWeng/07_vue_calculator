@@ -24,14 +24,23 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             if (this.copyInput.includes("x")) {
                 this.copyInput.replace(/x/g, "*");
             }
-            if (this.copyInput.includes ("÷")) {
+            if (this.copyInput.includes("÷")) {
                 this.copyInput.replace(/÷/g, "/");
             }
-            if (this.copyInput.includes ("mod")) {
+            if (this.copyInput.includes("mod")) {
                 this.copyInput.replace(/mod/g, "%");
             }
-            if (this.copyInput.includes ("π")) {
+            if (this.copyInput.includes("π")) {
                 this.copyInput.replace(/π/g, "3.14159265359");
+            }
+            // replaces exponents
+            if (this.copyInput.includes("²")) {
+                this.copyInput.replace(/²/g, "** 2");
+                console.log(this.copyInput)
+            }
+            // replaces sqrt
+            if (this.copyInput.includes("√")) {
+                this.copyInput.replace(/√/g, "Math.sqrt()")
             }
 
             //checking for edge cases
@@ -40,7 +49,7 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
                 alert("Error! Cannot divide by zero.");
                 inputValid = false;
             }
-            
+        
             // checks to make sure there are no letters in the input
             if (/[a-zA-Z]/g.test(this.copyInput)) {
                 alert("Error! Unknown variable detected.");
@@ -49,7 +58,6 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
 
             if (this.inputValid == true) {
                 this.answer = eval(this.copyInput)
-            console.log(this.answer)
             }
         },
     } 
