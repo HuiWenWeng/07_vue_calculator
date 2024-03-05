@@ -36,6 +36,14 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             if (this.copyInput.includes("%")) {
                 this.copyInput.replace(/%/g, "/100");
             }
+            if (this.copyInput.includes("²")) {
+                console.log(this.copyInput)
+                this.copyInput.replace(/²/g, "**2");
+            }
+          if (this.copyInput.includes("√")) {
+                console.log(this.copyInput)
+                this.copyInput.replace(/√/g, "**2");
+            }
 
             //checking for edge cases
             // checks division by 0
