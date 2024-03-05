@@ -58,7 +58,7 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
 
             if (this.inputValid == true) {
                 this.answer = eval(this.copyInput)
-                this.history.push(this.answer)
+                this.history.push(this.input + " = " + this.answer)
             }
         },
     } 
