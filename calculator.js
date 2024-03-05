@@ -22,28 +22,25 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             //changes the operations by making a copy
             this.copyInput = this.input;
             if (this.copyInput.includes("x")) {
-                this.copyInput.replaceAll(/x/g, "*");
+                this.copyInput = this.copyInput.replaceAll(/x/g, "*");
             }
             if (this.copyInput.includes("÷")) {
-                this.copyInput.replaceAll(/÷/g, "/");
+                this.copyInput = this.copyInput.replaceAll(/÷/g, "/");
             }
             if (this.copyInput.includes("mod")) {
-                copyInput.replaceAll("mod", "%");
-                console.log(this.copyInput)
+                this.copyInput = this.copyInput.replaceAll("mod", "%");
             }
             if (this.copyInput.includes("π")) {
-                this.copyInput.replaceAll(/π/g, "3.14159265359");
+                this.copyInput = this.copyInput.replaceAll(/π/g, "3.14159265359");
             }
             if (this.copyInput.includes("%")) {
-                this.copyInput.replaceAll(/%/g, "/100");
+                this.copyInput = this.copyInput.replaceAll(/%/g, "/100");
             }
             if (this.copyInput.includes("²")) {
-                this.copyInput.replaceAll(/²/g, "**2");
-                console.log(this.copyInput)
+                this.copyInput = this.copyInput.replaceAll(/²/g, "**2");
             }
             if (this.copyInput.includes("√")) {
-                this.copyInput.replaceAll(/√/g, "**2");
-                console.log(this.copyInput)
+                this.copyInput = this.copyInput.replaceAll(/√/g, "**2");
             }
 
             //checking for edge cases
@@ -61,6 +58,7 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
 
             if (this.inputValid == true) {
                 this.answer = eval(this.copyInput)
+                this.history.push(this.answer)
             }
         },
     } 
