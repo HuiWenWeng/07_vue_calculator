@@ -22,25 +22,28 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             //changes the operations by making a copy
             this.copyInput = this.input;
             if (this.copyInput.includes("x")) {
-                this.copyInput.replace(/x/g, "*");
+                this.copyInput.replaceAll(/x/g, "*");
             }
             if (this.copyInput.includes("÷")) {
-                this.copyInput.replace(/÷/g, "/");
+                this.copyInput.replaceAll(/÷/g, "/");
             }
             if (this.copyInput.includes("mod")) {
-                this.copyInput.replace(/mod/g, "%");
-            }
-            if (this.copyInput.includes("π")) {
-                this.copyInput.replace(/π/g, "3.14159265359");
-            }
-            // replaces exponents
-            if (this.copyInput.includes("²")) {
-                this.copyInput.replace(/²/g, "** 2");
+                copyInput.replaceAll("mod", "%");
                 console.log(this.copyInput)
             }
-            // replaces sqrt
+            if (this.copyInput.includes("π")) {
+                this.copyInput.replaceAll(/π/g, "3.14159265359");
+            }
+            if (this.copyInput.includes("%")) {
+                this.copyInput.replaceAll(/%/g, "/100");
+            }
+            if (this.copyInput.includes("²")) {
+                this.copyInput.replaceAll(/²/g, "**2");
+                console.log(this.copyInput)
+            }
             if (this.copyInput.includes("√")) {
-                this.copyInput.replace(/√/g, "Math.sqrt()")
+                this.copyInput.replaceAll(/√/g, "**2");
+                console.log(this.copyInput)
             }
 
             //checking for edge cases
