@@ -29,14 +29,14 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             if (this.copyInput.includes("÷")) {
                 this.copyInput = this.copyInput.replaceAll(/÷/g, "/");
             }
-            if (this.copyInput.includes("mod")) {
-                this.copyInput = this.copyInput.replaceAll("mod", "%");
-            }
             if (this.copyInput.includes("π")) {
                 this.copyInput = this.copyInput.replaceAll(/π/g, "3.14159265359");
             }
             if (this.copyInput.includes("%")) {
                 this.copyInput = this.copyInput.replaceAll(/%/g, "/100");
+            }
+            if (this.copyInput.includes("mod")) {
+                this.copyInput = this.copyInput.replaceAll(/mod/g, "%");
             }
             if (this.copyInput.includes("²")) {
                 this.copyInput = this.copyInput.replaceAll(/²/g, "**2");
@@ -59,6 +59,7 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             }
 
             if (this.inputValid == true) {
+                console.log(this.copyInput)
                 this.answer = eval(this.copyInput)
                 this.copyHistory.push(this.input)
                 this.history.push(this.input + " = " + this.answer)
