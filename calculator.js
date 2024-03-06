@@ -11,7 +11,24 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             inputValid: true,
             undoTracker: 0,
             edgeCase: [],
+            invalidBorder: "border-color: red",
         }; 
+    },
+
+    computed: {
+        divideByZero: function () {
+            if (this.input.includes ("/0")) {
+                alert("Error! Cannot divide by zero.");
+                inputValid = false;
+                return { invalidBorder };
+            }
+        }
+    },
+
+    watch: {
+        divideByZero: function() {
+            return "stub"
+        }
     },
 
     methods: { 
@@ -33,6 +50,7 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             if (this.copyInput.includes("π")) {
                 this.copyInput = this.copyInput.replaceAll(/π/g, "3.14159265359");
             }
+            // must be placed before mod
             if (this.copyInput.includes("%")) {
                 this.copyInput = this.copyInput.replaceAll(/%/g, "/100");
             }
@@ -94,13 +112,7 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
                 this.copyInput = this.copyInput.replaceAll(/√/g, "Math.sqrt");
             }
 
-            //checking for edge cases
-            // checks division by 0
-            if (this.copyInput.includes ("/0")) {
-                alert("Error! Cannot divide by zero.");
-                inputValid = false;
-            }
-
+            // doing the actual calculation
             if (this.inputValid == true) {
                 this.answer = eval(this.copyInput)
                 this.copyHistory.push(this.input)

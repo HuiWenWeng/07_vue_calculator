@@ -22,7 +22,7 @@
 
         <tr>
           <td @keyup.enter="calculate" class="inputField" colspan="5">
-            <input v-model="input" autofocus></input>
+            <input :style="divideByZero" v-model="input" autofocus />
           </td>
         <tr>
 
