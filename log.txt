@@ -10,3 +10,4 @@
 03/04 Tyler: Corrected the calculate method to evaluate PEMDAS, added modulo, fixed multiplication and division error, replaced the x with * and division symbol with / for functionality while maintaining accuracy.
 
 03/05 Hui Wen: Fixed the replacement of special symbols with eval() valid characters, displaying full expression and answer in history
+      Tyler (in class and afterschool): implemented an undo button, fixed square root, debugged all of the edge cases (number before parentheses or square root means multiply)
