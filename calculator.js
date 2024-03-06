@@ -51,7 +51,6 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
                         this.edgeCase.push(i)
                     }
                 }
-                console.log(this.edgeCase)
                 for (var i=0; i<this.edgeCase.length; i++) {
                     if (this.input[this.edgeCase[i] - 1]>='0' && this.input[this.edgeCase[i] - 1]<='9') {
                         this.copyInput = this.copyInput.replace("(", "*(");
@@ -65,7 +64,6 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
                         this.edgeCase.push(i)
                     }
                 }
-                console.log(this.edgeCase)
                 for (var i=0; i<this.edgeCase.length; i++) {
                     if (this.input[this.edgeCase[i] + 1]>='0' && this.input[this.edgeCase[i] - 1]<='9') {
                         this.copyInput = this.copyInput.replace(")", ")*");
@@ -104,7 +102,6 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             }
 
             if (this.inputValid == true) {
-                console.log(this.copyInput)
                 this.answer = eval(this.copyInput)
                 this.copyHistory.push(this.input)
                 this.history.push(this.input + " = " + this.answer)
