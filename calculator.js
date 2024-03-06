@@ -9,6 +9,7 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             history: [],
             copyHistory: [],
             inputValid: true,
+            undoTracker: 0,
         }; 
     },
 
@@ -62,10 +63,12 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
                 this.copyHistory.push(this.input)
                 this.history.push(this.input + " = " + this.answer)
                 this.input = "";
+                this.undoTracker = this.history.length - 1;
             }
         },
         undo() {
-            this.input = this.copyHistory[this.copyHistory.length - 1];
+            this.input = this.copyHistory[this.undoTracker];
+            this.undoTracker -= 1;
         }
     } 
 
