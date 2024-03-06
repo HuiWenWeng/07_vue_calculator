@@ -64,12 +64,17 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
                 this.copyHistory.push(this.input)
                 this.history.push(this.input + " = " + this.answer)
                 this.input = "";
-                this.undoTracker = this.history.length - 1;
+                this.undoTracker = this.history.length;
             }
         },
         undo() {
-            this.input = this.copyHistory[this.undoTracker];
-            this.undoTracker -= 1;
+            if (this.undoTracker > 0) {
+                this.input = this.copyHistory[this.undoTracker - 1];
+                this.undoTracker -= 1;
+            }
+            else (
+                this.input = ""
+            )
         }
     } 
 
