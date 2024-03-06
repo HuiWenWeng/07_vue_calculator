@@ -54,7 +54,7 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
                 console.log(this.edgeCase)
                 for (var i=0; i<this.edgeCase.length; i++) {
                     if (this.input[this.edgeCase[i] - 1]>='0' && this.input[this.edgeCase[i] - 1]<='9') {
-                        this.copyInput = this.copyInput.replaceAll("(", "*(");
+                        this.copyInput = this.copyInput.replace("(", "*(");
                     }
                 }
             }
@@ -68,7 +68,7 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
                 console.log(this.edgeCase)
                 for (var i=0; i<this.edgeCase.length; i++) {
                     if (this.input[this.edgeCase[i] + 1]>='0' && this.input[this.edgeCase[i] - 1]<='9') {
-                        this.copyInput = this.copyInput.replaceAll(")", ")*");
+                        this.copyInput = this.copyInput.replace(")", ")*");
                     }
                 }
             }
@@ -90,7 +90,7 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
                 console.log(this.edgeCase)
                 for (var i=0; i<this.edgeCase.length; i++) {
                     if (this.input[this.edgeCase[i] - 1]>='0' && this.input[this.edgeCase[i] - 1]<='9') {
-                        this.copyInput = this.copyInput.replaceAll(/√/g, "*Math.sqrt");
+                        this.copyInput = this.copyInput.replace(/√/g, "*Math.sqrt");
                     }
                 }
                 this.copyInput = this.copyInput.replaceAll(/√/g, "Math.sqrt");
