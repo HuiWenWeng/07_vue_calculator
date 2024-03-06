@@ -41,20 +41,22 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             if (this.copyInput.includes("²")) {
                 this.copyInput = this.copyInput.replaceAll(/²/g, "**2");
             }
+
+            // checks to make sure there are no letters in the input
+            if (/[a-zA-Z]/g.test(this.copyInput)) {
+                alert("Error! Unknown variable detected.");
+                this.inputValid = false;
+            }
+
+            //you need to check square root last for our sakes
             if (this.copyInput.includes("√")) {
-                this.copyInput = this.copyInput.replaceAll(/√/g, "**2");
+                this.copyInput = this.copyInput.replaceAll(/√/g, "Math.sqrt");
             }
 
             //checking for edge cases
             // checks division by 0
             if (this.copyInput.includes ("÷0")) {
                 alert("Error! Cannot divide by zero.");
-                inputValid = false;
-            }
-        
-            // checks to make sure there are no letters in the input
-            if (/[a-zA-Z]/g.test(this.copyInput)) {
-                alert("Error! Unknown variable detected.");
                 inputValid = false;
             }
 
