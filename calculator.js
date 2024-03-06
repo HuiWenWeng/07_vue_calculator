@@ -98,7 +98,7 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
 
             //checking for edge cases
             // checks division by 0
-            if (this.copyInput.includes ("÷0")) {
+            if (this.copyInput.includes ("/0")) {
                 alert("Error! Cannot divide by zero.");
                 inputValid = false;
             }
