@@ -55,7 +55,7 @@
           <td v-on:click="appendInput('2')">2</td>
           <td v-on:click="appendInput('3')">3</td>
           <td v-on:click="appendInput('-')">－</td>
-          <td rowspan="2" class="equal-btn" v-on:click="calculate()">=</td>
+          <td v-on:click="undo()">undo</td>
         </tr>
 
         <tr>
@@ -63,6 +63,7 @@
           <td v-on:click="appendInput('.')">.</td>
           <td v-on:click="appendInput('%')">%</td>
           <td v-on:click="appendInput('+')">+</td>
+          <td class="equal-btn" v-on:click="calculate()">=</td>
         </tr>
       </table>
 

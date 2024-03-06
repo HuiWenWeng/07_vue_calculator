@@ -7,6 +7,7 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             result: "",
             answer: "",
             history: [],
+            copyHistory: [],
             inputValid: true,
         }; 
     },
@@ -58,9 +59,14 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
 
             if (this.inputValid == true) {
                 this.answer = eval(this.copyInput)
+                this.copyHistory.push(this.input)
                 this.history.push(this.input + " = " + this.answer)
+                this.input = "";
             }
         },
+        undo() {
+            this.input = this.copyHistory[this.copyHistory.length - 1];
+        }
     } 
 
 }).mount('#app')
