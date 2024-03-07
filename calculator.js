@@ -19,29 +19,6 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             this.input = this.input.substring(0, this.input.length - 1);
         },
         calculate() {
-            //changes the operations by making a copy
-            this.copyInput = this.input;
-            if (this.copyInput.includes("x")) {
-                this.copyInput = this.copyInput.replaceAll(/x/g, "*");
-            }
-            if (this.copyInput.includes("÷")) {
-                this.copyInput = this.copyInput.replaceAll(/÷/g, "/");
-            }
-            if (this.copyInput.includes("mod")) {
-                this.copyInput = this.copyInput.replaceAll("mod", "%");
-            }
-            if (this.copyInput.includes("π")) {
-                this.copyInput = this.copyInput.replaceAll(/π/g, "3.14159265359");
-            }
-            if (this.copyInput.includes("%")) {
-                this.copyInput = this.copyInput.replaceAll(/%/g, "/100");
-            }
-            if (this.copyInput.includes("²")) {
-                this.copyInput = this.copyInput.replaceAll(/²/g, "**2");
-            }
-            if (this.copyInput.includes("√")) {
-                this.copyInput = this.copyInput.replaceAll(/√/g, "**2");
-            }
 
             //checking for edge cases
             // checks division by 0
@@ -54,6 +31,33 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             if (/[a-zA-Z]/g.test(this.copyInput)) {
                 alert("Error! Unknown variable detected.");
                 inputValid = false;
+            }
+
+            //changes the operations by making a copy
+            this.copyInput = this.input;
+            if (this.copyInput.includes("x")) {
+                this.copyInput = this.copyInput.replaceAll(/x/g, "*");
+            }
+            if (this.copyInput.includes("÷")) {
+                this.copyInput = this.copyInput.replaceAll(/÷/g, "/");
+            }
+            // must place % before mod or else mod -> % -> /100
+            if (this.copyInput.includes("%")) {
+                this.copyInput = this.copyInput.replaceAll(/%/g, "/100");
+            }
+            if (this.copyInput.includes("mod")) {
+                this.copyInput = this.copyInput.replaceAll("mod", "%");
+                console.log(this.copyInput)
+            }
+            if (this.copyInput.includes("π")) {
+                this.copyInput = this.copyInput.replaceAll(/π/g, "3.14159265359");
+            }
+            if (this.copyInput.includes("²")) {
+                this.copyInput = this.copyInput.replaceAll(/²/g, "**2");
+            }
+            if (this.copyInput.includes("√")) {
+                // radicand
+                this.copyInput = this.copyInput.replaceAll(/√/g, "Math.sqrt()");
             }
 
             if (this.inputValid == true) {

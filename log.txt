@@ -9,4 +9,4 @@
 03/04 Hui Wen: Alert when user inputs letters, replaced π with 3.14159265359 in the backend, added division by 0 error, began to fix sqrt and exponents
 03/04 Tyler: Corrected the calculate method to evaluate PEMDAS, added modulo, fixed multiplication and division error, replaced the x with * and division symbol with / for functionality while maintaining accuracy.
 
-03/05 Hui Wen: Fixed the replacement of special symbols with eval() valid characters, displaying full expression and answer in history
+03/05 Hui Wen: Fixed the replacement of special symbols with eval() valid characters, displaying full expression and answer in history, debugged error with mod, fixed sqrt calculation
