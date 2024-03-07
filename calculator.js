@@ -31,10 +31,10 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
     },
 
     watch: {
-        undoConfirm() {
-            if (confirm("Are you sure you would like to undo the last step?")) {
-                undoConfirm = true;
-            } 
+        history() {
+            console.log("this is working");
+            const container = this.$el.querySelector("#resultScroll");
+            container.scrollTop = container.scrollHeight;
         }
     },
 
