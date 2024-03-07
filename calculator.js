@@ -9,31 +9,36 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             history: [],
             copyHistory: [],
             inputValid: true,
+            undoConfirm: false,
             undoTracker: 0,
             edgeCase: [],
         }; 
     },
 
     computed: {
-        invalidInput: function () {
+        invalidInput() {
             if (this.input.includes ("/0")) {
+                this.input = "";
+                this.inputValid = false;
                 alert("Error! Cannot divide by zero.");
-                inputValid = false;
             }
             if (/[a-zA-Z]/g.test(this.input)) {
-                alert("Error! Unknown variable detected.");
+                this.input = "";
                 this.inputValid = false;
+                alert("Error! Unknown variable detected.");
             }
-            this.input = "";
+        } 
+    },
+
+    watch: {
+        undoConfirm() {
+            if (confirm("Are you sure you would like to undo the last step?")) {
+                undoConfirm = true;
+            } 
         }
     },
 
-    // watch: {
-    //     divideByZero: function() {
-    //         return "stub"
-    //     }
-    // },
-
+    
     methods: { 
         appendInput(button) {
             this.input += button;
@@ -42,10 +47,11 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             this.input = this.input.substring(0, this.input.length - 1);
         },
         calculate() {
+            console.log(this.input)
             //changes the operations by making a copy
             this.copyInput = this.input;
-            if (this.copyInput.includes("x")) {
-                this.copyInput = this.copyInput.replaceAll(/x/g, "*");
+            if (this.copyInput.includes("×")) {
+                this.copyInput = this.copyInput.replaceAll(/×/g, "*");
             }
             if (this.copyInput.includes("÷")) {
                 this.copyInput = this.copyInput.replaceAll(/÷/g, "/");
@@ -92,13 +98,13 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
                 }
             }
 
-            if (this.inputValid == true) {
-                this.answer = eval(this.copyInput)
-                this.copyHistory.push(this.input)
-                this.history.push(this.input + " = " + this.answer)
-                this.input = "";
-                this.undoTracker = this.history.length;
-            }
+            // if (this.inputValid == true) {
+            this.answer = eval(this.copyInput)
+            this.copyHistory.push(this.input)
+            this.history.push(this.input + " = " + this.answer)
+            this.input = "";
+            this.undoTracker = this.history.length;
+            // }
         },
         undo() {
             if (this.undoTracker > 0) {

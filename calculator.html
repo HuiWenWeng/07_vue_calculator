@@ -22,12 +22,13 @@
 
         <tr>
           <td @keyup.enter="calculate" class="inputField" colspan="5">
-            <input v-bind="invalidInput" v-model="input" autofocus />
+            <input v-model="input" autofocus />
+            {{ invalidInput }}
           </td>
         <tr>
 
         <tr>
-          <td v-on:click="deleteInput('⌫')">⌫</td>
+          <td v-on:click="deleteInput('⌫')" v-model="undoConfirm">⌫</td>
           <td v-on:click="appendInput('(')">(</td>
           <td v-on:click="appendInput(')')">)</td>
           <td v-on:click="appendInput('mod')">mod</td>
@@ -46,7 +47,7 @@
           <td v-on:click="appendInput('4')">4</td>
           <td v-on:click="appendInput('5')">5</td>
           <td v-on:click="appendInput('6')">6</td>
-          <td v-on:click="appendInput('x')">×</td>
+          <td v-on:click="appendInput('×')">×</td>
           <td v-on:click="appendInput('²')">x²</td>
         </tr>
 
@@ -55,7 +56,7 @@
           <td v-on:click="appendInput('2')">2</td>
           <td v-on:click="appendInput('3')">3</td>
           <td v-on:click="appendInput('-')">－</td>
-          <td v-on:click="undo()">undo</td>
+          <td v-on:click="undo()">Undo</td>
         </tr>
 
         <tr>

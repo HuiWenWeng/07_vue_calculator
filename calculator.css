@@ -25,10 +25,10 @@ input {
 }
 
 table {
-    padding-inline: 15%;
+    margin-inline: auto;
     border-spacing: 8px;
     table-layout: fixed;
-    width: 100%;
+    width: 80%;
 }
 
 td {
