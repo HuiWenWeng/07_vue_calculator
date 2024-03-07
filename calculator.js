@@ -11,25 +11,28 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             inputValid: true,
             undoTracker: 0,
             edgeCase: [],
-            invalidBorder: "border-color: red",
         }; 
     },
 
     computed: {
-        divideByZero: function () {
+        invalidInput: function () {
             if (this.input.includes ("/0")) {
                 alert("Error! Cannot divide by zero.");
                 inputValid = false;
-                return { invalidBorder };
             }
+            if (/[a-zA-Z]/g.test(this.input)) {
+                alert("Error! Unknown variable detected.");
+                this.inputValid = false;
+            }
+            this.input = "";
         }
     },
 
-    watch: {
-        divideByZero: function() {
-            return "stub"
-        }
-    },
+    // watch: {
+    //     divideByZero: function() {
+    //         return "stub"
+    //     }
+    // },
 
     methods: { 
         appendInput(button) {
@@ -75,11 +78,11 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
                     }
                 }
             }
-            if (this.copyInput.includes(")")) {
-                this.edgeCase = []
-                for (var i=0; i<this.input.length; i++) {
-                    if (this.input.charAt(i) == ")") {
-                        this.edgeCase.push(i)
+                if (this.copyInput.includes(")")) {
+                    this.edgeCase = []
+                    for (var i=0; i<this.input.length; i++) {
+                        if (this.input.charAt(i) == ")") {
+                            this.edgeCase.push(i)
                     }
                 }
                 for (var i=0; i<this.edgeCase.length; i++) {
@@ -87,39 +90,6 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
                         this.copyInput = this.copyInput.replace(")", ")*");
                     }
                 }
-            }
-
-            // checks to make sure there are no letters in the input
-            if (/[a-zA-Z]/g.test(this.copyInput)) {
-                alert("Error! Unknown variable detected.");
-                this.inputValid = false;
-            }
-
-            //changes the operations by making a copy
-            this.copyInput = this.input;
-            if (this.copyInput.includes("x")) {
-                this.copyInput = this.copyInput.replaceAll(/x/g, "*");
-            }
-            if (this.copyInput.includes("÷")) {
-                this.copyInput = this.copyInput.replaceAll(/÷/g, "/");
-            }
-            // must place % before mod or else mod -> % -> /100
-            if (this.copyInput.includes("%")) {
-                this.copyInput = this.copyInput.replaceAll(/%/g, "/100");
-            }
-            if (this.copyInput.includes("mod")) {
-                this.copyInput = this.copyInput.replaceAll("mod", "%");
-                console.log(this.copyInput)
-            }
-            if (this.copyInput.includes("π")) {
-                this.copyInput = this.copyInput.replaceAll(/π/g, "3.14159265359");
-            }
-            if (this.copyInput.includes("²")) {
-                this.copyInput = this.copyInput.replaceAll(/²/g, "**2");
-            }
-            if (this.copyInput.includes("√")) {
-                // radicand
-                this.copyInput = this.copyInput.replaceAll(/√/g, "Math.sqrt()");
             }
 
             if (this.inputValid == true) {
