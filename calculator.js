@@ -30,15 +30,20 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
     },
 
     watch: {
-        history: function(newVal, oldVal) {
-          console.log("working")
-          if (newVal != oldVal) {
-            this.$nextTick(() => {
-                this.$refs.resultScroll.scrollTop = this.$refs.resultScroll.scrollHeight;
-            });
-          }
+        history: {
+            deep: true,
+            handler: function() {
+                // console.log("working")
+                this.$nextTick(() => {
+                    // console.log(this.$refs.resultScroll);
+                    this.$refs.resultScroll.scrollTop = this.$refs.resultScroll.scrollHeight;
+                });
+            }
         },
     },
+    // my lords and saviors:
+    // https://stackoverflow.com/questions/59378814/vue-js-watch-not-triggering-when-object-is-modified
+    // https://stackoverflow.com/questions/40730116/scroll-to-bottom-of-div-with-vue-js
     
     methods: { 
         appendInput(button) {
