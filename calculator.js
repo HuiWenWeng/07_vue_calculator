@@ -21,11 +21,6 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
                 this.inputValid = false;
                 alert("Error! Cannot divide by zero.");
             }
-            if (/[a-zA-Z]/g.test(this.input)) {
-                this.input = "";
-                this.inputValid = false;
-                alert("Error! Unknown variable detected.");
-            }
         } 
     },
 
@@ -73,6 +68,16 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             }
             if (this.copyInput.includes("²")) {
                 this.copyInput = this.copyInput.replaceAll(/²/g, "**2");
+            }
+            if (this.copyInput.includes("√")) {
+                this.copyInput = this.copyInput.replaceAll(/√/g, "Math.sqrt");
+            }
+
+            // checks for letters in the input
+            if (/[a-zA-Z]/g.test(this.input)) {
+                this.input = "";
+                this.inputValid = false;
+                alert("Error! Unknown variable detected.");
             }
 
             //the edge cases where a number appears before a parentheses (it's multiplication)
