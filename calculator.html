@@ -12,7 +12,7 @@
 
         <tr>
           <td class="resultTd" colspan="5">
-            <div class="resultField" id="resultScroll">
+            <div class="resultField" ref="resultScroll">
               <ul>
                 <li v-for="entry in history">{{ entry }}</li>
               </ul>
@@ -21,8 +21,8 @@
         <tr>
 
         <tr>
-          <td @keyup.enter="calculate" class="inputField" colspan="5">
-            <input v-model="input" autofocus />
+          <td class="inputField" colspan="5">
+            <input v-model="input" v-on:keydown.enter="calculate()" autofocus />
             {{ invalidInput }}
           </td>
         <tr>

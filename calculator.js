@@ -31,13 +31,16 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
     },
 
     watch: {
-        history() {
-            console.log("this is working");
-            const container = this.$el.querySelector("#resultScroll");
-            container.scrollTop = container.scrollHeight;
-        }
+        history(newValue, oldValue) {
+          console.log("working")
+          if (newValue !== oldValue) {
+            this.$nextTick(() => {
+              const scroll = this.$refs.resultScroll;
+              scroll.scrollTop = scroll.scrollHeight;
+            });
+          }
+        },
     },
-
     
     methods: { 
         appendInput(button) {
