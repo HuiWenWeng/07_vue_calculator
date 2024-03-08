@@ -13,4 +13,4 @@
 03/05 Tyler (in class and afterschool): implemented an undo button, fixed square root, debugged all of the edge cases (number before parentheses or square root means multiply)
 
 03/06 Hui Wen: Working on computed property and watcher
-03/07 Hui Wen: Finished computed property
+03/07 Hui Wen: Finished computed property, enter on input working, watcher still broken.

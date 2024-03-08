@@ -9,7 +9,6 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             history: [],
             copyHistory: [],
             inputValid: true,
-            undoConfirm: false,
             undoTracker: 0,
             edgeCase: [],
         }; 
@@ -31,12 +30,11 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
     },
 
     watch: {
-        history(newValue, oldValue) {
+        history: function(newVal, oldVal) {
           console.log("working")
-          if (newValue !== oldValue) {
+          if (newVal != oldVal) {
             this.$nextTick(() => {
-              const scroll = this.$refs.resultScroll;
-              scroll.scrollTop = scroll.scrollHeight;
+                this.$refs.resultScroll.scrollTop = this.$refs.resultScroll.scrollHeight;
             });
           }
         },
@@ -50,7 +48,6 @@ import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
             this.input = this.input.substring(0, this.input.length - 1);
         },
         calculate() {
-            console.log(this.input)
             //changes the operations by making a copy
             this.copyInput = this.input;
             if (this.copyInput.includes("×")) {
